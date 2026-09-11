@@ -1,0 +1,136 @@
+/* ==========================================================================
+   Lengua y Literatura 9no EGB - Vista Figuras Literarias (views/figuras.html)
+   ========================================================================== */
+
+.flashcards-section {
+  padding: 3rem 0 5rem;
+}
+
+.figures-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: 1.75rem;
+  margin-top: 2rem;
+}
+
+.flashcard {
+  perspective: 1000px;
+  height: 200px;
+  cursor: pointer;
+}
+
+.flashcard-inner {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  text-align: center;
+  transition: transform 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+  transform-style: preserve-3d;
+  border-radius: var(--radius-lg);
+  box-shadow: var(--shadow-sm);
+}
+
+.flashcard.flipped .flashcard-inner {
+  transform: rotateY(180deg);
+}
+
+.flashcard-front, .flashcard-back {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  -webkit-backface-visibility: hidden;
+  backface-visibility: hidden;
+  border-radius: var(--radius-lg);
+  padding: 1.75rem 1.5rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  border: 1px solid var(--border-color);
+}
+
+.flashcard-front {
+  background: var(--bg-card);
+  color: var(--primary);
+  font-size: 1.35rem;
+  font-weight: 700;
+  transition: border-color var(--transition-fast), box-shadow var(--transition-fast);
+}
+
+.flashcard:hover .flashcard-front {
+  border-color: var(--primary);
+  box-shadow: var(--shadow-md);
+}
+
+.flashcard-front .card-icon {
+  font-size: 2.2rem;
+  margin-bottom: 0.5rem;
+}
+
+.flashcard-front p {
+  font-size: 0.8rem;
+  color: var(--text-muted);
+  margin-top: 0.5rem;
+  font-weight: 500;
+}
+
+.flashcard-back {
+  background: linear-gradient(135deg, var(--primary) 0%, var(--primary-hover) 100%);
+  color: white;
+  transform: rotateY(180deg);
+  font-size: 0.95rem;
+  line-height: 1.5;
+  box-shadow: var(--shadow-lg);
+}
+
+.flashcard-back strong {
+  display: block;
+  font-size: 1rem;
+  margin-bottom: 0.5rem;
+}
+
+.flashcard-back em {
+  font-size: 0.85rem;
+  opacity: 0.9;
+  background: rgba(255, 255, 255, 0.15);
+  padding: 0.4rem 0.75rem;
+  border-radius: var(--radius-sm);
+  display: block;
+}
+
+/* Panel Educativo sobre Poética */
+.poetic-theory-card {
+  background: var(--bg-card);
+  border: 1px solid var(--border-color);
+  border-radius: var(--radius-lg);
+  padding: 2.25rem;
+  margin-top: 3.5rem;
+  box-shadow: var(--shadow-sm);
+}
+
+.poetic-theory-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+  gap: 1.5rem;
+  margin-top: 1.5rem;
+}
+
+.theory-item {
+  background: var(--bg-body);
+  border: 1px solid var(--border-color);
+  border-radius: var(--radius-md);
+  padding: 1.25rem;
+}
+
+.theory-item h5 {
+  font-size: 1rem;
+  font-weight: 700;
+  color: var(--primary);
+  margin-bottom: 0.4rem;
+}
+
+.theory-item p {
+  font-size: 0.85rem;
+  color: var(--text-muted);
+  margin: 0;
+}

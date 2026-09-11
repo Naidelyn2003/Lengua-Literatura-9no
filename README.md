@@ -48,24 +48,51 @@ El proyecto traduce los cinco bloques curriculares del área de Lengua y Literat
 ```text
 Lengua-Literatura-9no/
 │
-├── index.html                     # Documento HTML principal semántico y estructurado
+├── index.html                     # Portal Principal y Hub de Aprendizaje (Descentralizado)
 │
-├── css/
-│   └── style.css                  # Sistema de diseño con tokens CSS, modo oscuro y animaciones
+├── views/                         # Vistas Principales Modularizadas
+│   ├── modulos.html               # Vista: 5 Bloques Curriculares + Modal dinámico
+│   ├── lecciones.html             # Vista: 3 Lecciones clave (Novela, Ortografía G/J, Expositivo)
+│   ├── taller.html                # Vista: Taller de redacción de ensayo con esquema en vivo
+│   ├── figuras.html               # Vista: Laboratorio 3D de figuras literarias (Flashcards)
+│   └── cuestionario.html          # Vista: Autoevaluación formativa con calificación sobre 10
 │
-├── js/
-│   └── main.js                    # Lógica interactiva: temas, modales, quiz, taller y flashcards
+├── css/                           # Sistema de Diseño Modular
+│   ├── base.css                   # Tokens CSS, variables de modo oscuro, reset y fuentes
+│   ├── components.css             # Componentes compartidos (header, footer, badges, botones, toast)
+│   ├── style.css                  # Hoja maestra modular que importa los submódulos
+│   └── views/                     # Estilos específicos por módulo y vista
+│       ├── portal.css             # Estilos del hub de inicio y tarjetas del portal
+│       ├── modules.css            # Rejilla y tarjetas de bloques curriculares
+│       ├── lessons.css            # Tarjetas y modales temáticos de lecciones
+│       ├── essay.css              # Formulario y previsualizador del taller
+│       ├── flashcards.css         # Tarjetas 3D y animación de giro
+│       └── quiz.css               # Estilos del cuestionario y reactivos
+│
+├── js/                            # Lógica y Controladores Modulares
+│   ├── main.js                    # Orquestador e inicializador contextual de módulos
+│   ├── data/
+│   │   ├── modulesData.js         # Catálogo de los 5 bloques curriculares (MODULES_DATA)
+│   │   └── quizData.js            # Banco de preguntas evaluativas (QUIZ_QUESTIONS)
+│   └── modules/
+│       ├── theme.js               # Controlador de tema claro/oscuro (localStorage)
+│       ├── navigation.js          # Navegación activa, scroll suave y menú móvil
+│       ├── modulesModal.js        # Controlador del modal dinámico de bloques
+│       ├── essayBuilder.js        # Reactividad en vivo del taller de ensayo
+│       ├── flashcards.js          # Control de giro 3D en flashcards
+│       ├── toast.js               # Servicio de notificación flotante (toast)
+│       └── quizEvaluation.js      # Motor evaluativo y diagnóstico sobre 10 pts
 │
 ├── assets/
-│   └── img/                       # Recursos gráficos, logotipos e iconografía del proyecto
+│   └── img/                       # Recursos gráficos y multimedia del proyecto
 │
-├── docs/                          # Documentación técnica y académica completa
+├── docs/                          # Documentación técnica y pedagógica completa
 │   ├── DOCUMENTACION_TECNICA.md   # Especificaciones técnicas de código, APIs y componentes
 │   ├── ARQUITECTURA.md            # Arquitectura del software, modelo de capas y despliegue
 │   ├── DIAGRAMAS_UML.md           # Diagramas UML (Casos de Uso, Clases, Secuencia, Estados, Actividad)
 │   └── CASOS_DE_USO.md            # Especificación detallada de casos de uso (CU-01 al CU-07)
 │
-└── README.md                      # Presentación general y guía de inicio rápido (este archivo)
+└── README.md                      # Presentación general y guía de inicio rápido
 ```
 
 ---

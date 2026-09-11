@@ -45,9 +45,9 @@ El proyecto minimiza las dependencias externas a recursos estables y de alta dis
 
 ---
 
-## 3. Especificación de Estructuras de Datos (`js/main.js`)
+## 3. Especificación de Estructuras de Datos (`js/data/modulesData.js` y `js/data/quizData.js`)
 
-Los contenidos curriculares y las preguntas evaluativas están organizados en colecciones de objetos JavaScript que desacoplan la información de la lógica de renderizado.
+Los contenidos curriculares y las preguntas evaluativas están organizados en módulos JavaScript independientes en la carpeta `js/data/` que desacoplan la información de la lógica de renderizado.
 
 ### 3.1 Diccionario de Módulos Curriculares (`MODULES_DATA`)
 
@@ -249,12 +249,12 @@ Para verificar el correcto funcionamiento de la plataforma en despliegues o actu
 
 ---
 
-## 7. Guía de Mantenimiento y Extensibilidad
-
+## 7. Guía de Mantenimiento y Extensibilidad Modular
+ 
 ### A. Cómo agregar un nuevo Bloque Curricular
-1. Abre el archivo `index.html`.
+1. Abre el archivo modular [`views/modulos.html`](file:///c:/Users/HP/Documents/Lengua-Literatura-9no/views/modulos.html).
 2. Dentro de `.modules-grid`, añade un nuevo elemento `<article class="module-card" data-module="6">...</article>` con su botón `<button class="btn btn-secondary js-open-module" data-module-id="6">Ver Detalle</button>`.
-3. Abre el archivo `js/main.js` y dentro del objeto `MODULES_DATA`, añade la clave `6`:
+3. Abre el archivo [`js/data/modulesData.js`](file:///c:/Users/HP/Documents/Lengua-Literatura-9no/js/data/modulesData.js) y dentro de `MODULES_DATA`, añade la clave `6`:
    ```javascript
    6: {
        title: "Título del Nuevo Módulo",
@@ -266,23 +266,24 @@ Para verificar el correcto funcionamiento de la plataforma en despliegues o actu
        ]
    }
    ```
-4. Guarda los archivos. El nuevo bloque estará completamente integrado y funcional.
+4. Guarda los archivos. El nuevo bloque estará automáticamente integrado en la vista de módulos y el modal.
 
 ### B. Cómo añadir una nueva Figura Literaria
-1. Abre `index.html` y ubica la sección `#figuras`.
+1. Abre [`views/figuras.html`](file:///c:/Users/HP/Documents/Lengua-Literatura-9no/views/figuras.html).
 2. En `.figures-grid`, inserta un nuevo bloque `.flashcard`:
    ```html
    <div class="flashcard">
        <div class="flashcard-inner">
            <div class="flashcard-front">
-               <span>Anáfora</span>
-               <p>Toca para revelar 🔄</p>
+               <span class="card-icon">⚡</span>
+               <h2>Anáfora</h2>
+               <p>Toca para voltear 🔄</p>
            </div>
            <div class="flashcard-back">
-               <strong>Repetición de una o más palabras al inicio de versos sucesivos.</strong>
-               <em style="margin-top:0.5rem; display:block;">"Temprano levantó la muerte el vuelo, temprano madrugó la madrugada"</em>
+               <strong>Repetición deliberada de una o más palabras al inicio de versos sucesivos.</strong>
+               <em>"Temprano levantó la muerte el vuelo, temprano madrugó la madrugada"</em>
            </div>
        </div>
    </div>
    ```
-3. No se requiere modificar `main.js`, ya que `initFlashcards()` selecciona automáticamente todos los elementos `.flashcard` del DOM.
+3. Guarda el archivo. [`js/modules/flashcards.js`](file:///c:/Users/HP/Documents/Lengua-Literatura-9no/js/modules/flashcards.js) detecta dinámicamente cualquier nueva tarjeta en el DOM sin tocar scripts.

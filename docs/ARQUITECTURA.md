@@ -18,61 +18,71 @@ La plataforma adopta el patrón arquitectónico de **Aplicación Web Estática d
 
 ---
 
-## 2. Modelo Arquitectónico de Capas
+## 2. Modelo Arquitectónico de Capas Modularizado
 
-El software se organiza conceptualmente en tres capas lógicas bien definidas:
+El software se organiza conceptualmente en tres capas lógicas desacopladas y escalables:
 
 ```mermaid
 flowchart TD
-    subgraph CAPA_PRESENTACION["1. Capa de Presentación (Vista)"]
-        UI_HTML["index.html\n(HTML5 Semántico, Accesible)"]
-        UI_CSS["css/style.css\n(Tokens CSS, Modo Oscuro, Glassmorphism, 3D Transforms)"]
-        UI_BS["Bootstrap 5.3.3 CDN\n(Sistema de Rejilla, Modales Estáticos)"]
-        UI_FONTS["Google Fonts CDN\n(Outfit Sans & Playfair Display Serif)"]
+    subgraph CAPA_PRESENTACION["1. Capa de Presentación (Vistas Modulares)"]
+        UI_PORTAL["index.html\n(Portal Principal & Hub de Aprendizaje)"]
+        subgraph VISTAS["views/ (Vistas Especializadas)"]
+            V_MOD["modulos.html\n(Bloques 1-5 + Modal)"]
+            V_LEC["lecciones.html\n(Lecciones Clave + Modales BS)"]
+            V_TAL["taller.html\n(Taller de Ensayo Reactivo)"]
+            V_FIG["figuras.html\n(Laboratorio 3D Flashcards)"]
+            V_QUIZ["cuestionario.html\n(Autoevaluación /10 pts)"]
+        end
+        UI_CSS["css/style.css -> base.css, components.css, views/*.css"]
+        UI_BS["Bootstrap 5.3.3 CDN\n(Rejilla responsiva, Modales)"]
     end
 
-    subgraph CAPA_LOGICA["2. Capa Lógica y Controladores (Controlador de UI)"]
-        TC["ThemeController\n(initThemeToggle, updateThemeIcon)"]
-        MC["ModuleController\n(initModuleDetailsModal, renderModuleModalContent)"]
-        EC["EssayBuilderController\n(initEssayBuilder, updatePreview)"]
-        QC["QuizEvaluationEngine\n(initAutoevaluacion, cálculo de puntaje /10)"]
-        FC["FlashcardController\n(initFlashcards, toggle de volteo 3D)"]
-        NC["NotificationService\n(showFloatingToast, closeFloatingToast)"]
-        SC["NavigationController\n(initSmoothScroll, enlaces activos)"]
+    subgraph CAPA_LOGICA["2. Capa Lógica y Controladores (js/modules/)"]
+        MAIN["js/main.js\n(Orquestador Contextual)"]
+        TC["modules/theme.js\n(initThemeToggle)"]
+        NAV["modules/navigation.js\n(highlightActiveNavLink, smoothScroll)"]
+        MC["modules/modulesModal.js\n(initModuleDetailsModal)"]
+        EC["modules/essayBuilder.js\n(initEssayBuilder)"]
+        QC["modules/quizEvaluation.js\n(initAutoevaluacion)"]
+        FC["modules/flashcards.js\n(initFlashcards 3D)"]
+        NC["modules/toast.js\n(showFloatingToast)"]
     end
 
-    subgraph CAPA_DATOS["3. Capa de Estado y Datos Locales (Modelo)"]
-        DATA_MOD["MODULES_DATA\n(Diccionario de 5 Bloques Curriculares)"]
-        DATA_QUIZ["QUIZ_QUESTIONS\n(Banco de reactivos y explicaciones)"]
+    subgraph CAPA_DATOS["3. Capa de Datos y Estado (js/data/)"]
+        DATA_MOD["data/modulesData.js\n(Diccionario MODULES_DATA)"]
+        DATA_QUIZ["data/quizData.js\n(Banco QUIZ_QUESTIONS)"]
         STORAGE["Web Storage API\n(localStorage: 'theme' -> 'light' | 'dark')"]
-        DOM_STATE["Estado Volátil en Memoria\n(Respuestas marcadas, borrador de ensayo)"]
     end
 
     %% Relaciones entre capas
-    UI_HTML <--> CAPA_LOGICA
+    UI_PORTAL --> MAIN
+    VISTAS --> MAIN
+    MAIN --> CAPA_LOGICA
     CAPA_LOGICA <--> CAPA_DATOS
-    UI_CSS -. Aplica tokens a .-> UI_HTML
-    UI_BS -. Provee estilos y modales a .-> UI_HTML
+    UI_CSS -. Estiliza .-> UI_PORTAL & VISTAS
+    UI_BS -. Provee soporte a .-> UI_PORTAL & VISTAS
 ```
 
 ### Detalle de cada Capa:
 
-#### 1. Capa de Presentación (UI / Vista)
-- **Documento Semántico (`index.html`):** Define el árbol DOM jerárquico estructurado en secciones temáticas (`#inicio`, `#modulos`, `#lecciones`, `#taller`, `#figuras`, `#cuestionario`).
-- **Sistema de Diseño (`css/style.css`):**
-  - Implementa una arquitectura basada en variables CSS (`--primary`, `--secondary`, `--bg-body`, `--text-main`, etc.).
-  - Soporta el conmutador de tema claro/oscuro de forma inmediata modificando el atributo `data-theme` en la etiqueta `<html>`.
-  - Contiene utilidades visuales modernas: tarjetas elevadas, gradientes sutiles, microanimaciones y efectos 3D para el aprendizaje interactivo.
-- **Framework de Soporte (Bootstrap 5.3.3):** Provee el sistema de diseño responsivo de doce columnas y la API de modales para las tres lecciones formativas del nivel.
+#### 1. Capa de Presentación (UI / Vistas Modulares Descentralizadas)
+- **Portal Central (`index.html`):** Hub de bienvenida, métricas pedagógicas y navegación hacia cada módulo temático.
+- **Vistas Específicas (`views/`):** Cada funcionalidad principal reside en su propio archivo semántico (`modulos.html`, `lecciones.html`, `taller.html`, `figuras.html`, `cuestionario.html`), con enlaces activos y contexto visual propio.
+- **Sistema de Diseño Modular (`css/`):**
+  - `css/base.css`: Tokens de color HSL/HEX, modo oscuro y reset.
+  - `css/components.css`: Header glassmorphism, footer, botones, badges y notificaciones toast.
+  - `css/views/*.css`: Hojas especializadas para cada vista (`portal.css`, `modules.css`, `lessons.css`, `essay.css`, `flashcards.css`, `quiz.css`).
+  - `css/style.css`: Orquestador maestro que importa todos los submódulos para compatibilidad total.
 
-#### 2. Capa Lógica y Controladores (`js/main.js`)
-Esta capa orquesta las interacciones del usuario y responde a eventos del DOM:
-- **`ThemeController`:** Detecta las preferencias del sistema operativo (`prefers-color-scheme`), lee la preferencia del usuario desde `localStorage`, aplica el tema y sincroniza los iconos visuales (🌙 / ☀️).
-- **`ModuleController`:** Escucha clics en los botones `.js-open-module`, consulta la estructura de datos del módulo respectivo y construye dinámicamente el contenido HTML en la ventana modal centralizada.
-- **`EssayBuilderController`:** Escucha eventos `input` en los campos de tema, tesis y argumento, proyectando en tiempo real una tarjeta de previsualización estructurada.
-- **`QuizEvaluationEngine`:** Valida que el estudiante haya respondido las 3 preguntas del cuestionario de 9.º EGB, calcula la calificación cuantitativa en escala de 0 a 10.0 puntos y genera retroalimentación cualitativa inmediata.
-- **`NotificationService`:** Administra el ciclo de vida del *Toast flotante* interactivo, asegurando que solo exista un mensaje visible y permitiendo el cierre manual o reactivo.
-- **`FlashcardController`:** Gestiona el volteo tridimensional de las tarjetas didácticas alternando la clase CSS `.flipped`.
+#### 2. Capa Lógica y Controladores (`js/modules/` y `js/main.js`)
+- **`js/main.js`:** Orquestador ligero que detecta los componentes presentes en el DOM de la vista abierta y activa de forma condicional y segura los controladores requeridos.
+- **`theme.js`:** Controla la persistencia de tema claro/oscuro en `localStorage` sincronizada en todas las páginas.
+- **`navigation.js`:** Gestiona el enlace activo en la barra de navegación y el desplazamiento suave.
+- **`modulesModal.js`:** Inyecta dinámicamente el contenido de los bloques curriculares desde `MODULES_DATA`.
+- **`essayBuilder.js`:** Escucha en tiempo real los inputs del estudiante para generar el esquema argumentativo.
+- **`flashcards.js`:** Controla el volteo tridimensional (3D flip) de las tarjetas de figuras literarias con soporte de teclado y ratón.
+- **`quizEvaluation.js`:** Motor de calificación cuantitativa sobre 10.0 puntos y desglose formativo por pregunta.
+- **`toast.js`:** Servicio centralizado de alertas flotantes animadas.
 
 #### 3. Capa de Estado y Datos Locales (Modelo)
 - **Estructuras en Memoria:**
