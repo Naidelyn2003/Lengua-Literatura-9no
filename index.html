@@ -1,0 +1,683 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Plataforma interactiva de aprendizaje para la asignatura de Lengua y Literatura de 9no Año de Educación General Básica (EGB). Módulos, ensayos, figuras literarias y autoevaluación.">
+    <meta name="keywords" content="Lengua y Literatura, 9no EGB, Ensayo Argumentativo, Figuras Literarias, Origen de la Escritura, Debate, Novela Policial">
+    <meta name="author" content="Lengua & Literatura 9no EGB">
+    <title>Lengua y Literatura - 9º Año EGB | Portal Educativo Interactivo</title>
+    
+    <!-- Bootstrap 5 CSS & Custom Stylesheet -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+    <!-- ==========================================
+         HEADER Y NAVEGACIÓN
+         ========================================== -->
+    <header class="header">
+        <div class="container header-container">
+            <a href="#" class="logo" id="main-logo">
+                <div class="logo-icon">📖</div>
+                <div class="logo-text">Lengua<span>9ºEGB</span></div>
+            </a>
+
+            <nav>
+                <ul class="nav-links">
+                    <li><a href="#inicio" class="nav-link active">Inicio</a></li>
+                    <li><a href="#modulos" class="nav-link">Módulos</a></li>
+                    <li><a href="#lecciones" class="nav-link">Lecciones</a></li>
+                    <li><a href="#taller" class="nav-link">Taller de Escritura</a></li>
+                    <li><a href="#figuras" class="nav-link">Figuras Literarias</a></li>
+                    <li><a href="#cuestionario" class="nav-link">Cuestionario</a></li>
+                </ul>
+            </nav>
+
+            <div class="header-actions">
+                <button class="btn btn-icon theme-toggle" id="theme-toggle" aria-label="Cambiar tema de color">
+                    🌙
+                </button>
+                <a href="#modulos" class="btn btn-primary" style="padding: 0.5rem 1rem; font-size: 0.875rem;">Explorar</a>
+            </div>
+        </div>
+    </header>
+
+    <main>
+        <!-- ==========================================
+             HERO SECTION
+             ========================================== -->
+        <section class="hero" id="inicio">
+            <div class="container hero-grid">
+                <div class="hero-content">
+                    <div class="hero-tag" style="display: flex; gap: 0.5rem; flex-wrap: wrap; align-items: center;">
+                        <span class="badge badge-primary" style="font-size: 0.875rem; padding: 0.45rem 1rem;">
+                            🏫 Unidad Educativa Fiscomisional San Lorenzo
+                        </span>
+                        <span class="badge badge-purple" style="font-size: 0.85rem; padding: 0.45rem 0.85rem;">
+                            9.º Año EGB Superior
+                        </span>
+                    </div>
+                    <h1 class="hero-title">
+                        Descubre el poder de las <span class="gradient-text">palabras, ideas y relatos</span>
+                    </h1>
+                    <p class="hero-description">
+                        ¡Sean cordialmente bienvenidos, estimados estudiantes de <strong>Noveno Año de Educación General Básica Superior</strong>! Nos alegra recibirles en la plataforma virtual de Lengua y Literatura de la <strong>Unidad Educativa Fiscomisional San Lorenzo</strong>. Un espacio diseñado para acompañarte a explorar el origen de la escritura, perfeccionar tu comunicación oral, dominar la redacción de ensayos argumentativos y sumergirte en el fascinante mundo de la literatura.
+                    </p>
+                    <div class="hero-buttons">
+                        <a href="#modulos" class="btn btn-primary">
+                            <span>Ver Módulos de Estudio</span>
+                            <span>→</span>
+                        </a>
+                        <a href="#taller" class="btn btn-secondary">
+                            <span>✏️ Taller de Ensayo</span>
+                        </a>
+                    </div>
+                    <div class="hero-stats">
+                        <div class="stat-item">
+                            <h4>5</h4>
+                            <p>Bloques Curriculares</p>
+                        </div>
+                        <div class="stat-item">
+                            <h4>100%</h4>
+                            <p>Interactivo & Práctico</p>
+                        </div>
+                        <div class="stat-item">
+                            <h4>9.º EGB</h4>
+                            <p>Básica Superior</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="hero-card-visual">
+                    <div class="visual-header">
+                        <span class="dot dot-red"></span>
+                        <span class="dot dot-yellow"></span>
+                        <span class="dot dot-green"></span>
+                        <span style="font-size:0.75rem; color:var(--text-muted); margin-left: auto;">U.E.F. San Lorenzo</span>
+                    </div>
+                    <div class="quote-box">
+                        <p class="quote-text">"Un libro abierto es un cerebro que habla; cerrado, un amigo que espera; olvidado, un alma que perdona."</p>
+                        <p class="quote-author">— Proverbio Hindú sobre la Lectura</p>
+                    </div>
+                    <div class="quick-quiz-preview">
+                        <div>
+                            <strong style="font-size:0.875rem; display:block;">¿Sabías qué?</strong>
+                            <span style="font-size:0.8rem; color:var(--text-muted);">La primera novela policial de la historia es "Los crímenes de la calle Morgue".</span>
+                        </div>
+                        <a href="#cuestionario" class="badge badge-emerald" style="text-decoration:none;">Probar Quiz</a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ==========================================
+             MÓDULOS ACADÉMICOS (BLOQUES CURRICULARES)
+             ========================================== -->
+        <section class="modules-section" id="modulos">
+            <div class="container">
+                <div style="text-align: center; max-width: 650px; margin: 0 auto 3rem;">
+                    <span class="badge badge-purple">Programa de Estudio</span>
+                    <h2 class="section-title">Bloques Curriculares de 9º EGB</h2>
+                    <p class="section-subtitle">Explora los cinco ejes fundamentales del aprendizaje de la lengua y la literatura.</p>
+                </div>
+
+                <div class="modules-grid">
+                    <!-- Módulo 1 -->
+                    <article class="module-card" data-module="1">
+                        <div class="module-header">
+                            <div class="module-icon-wrap">📜</div>
+                            <span class="module-number">Bloque 01</span>
+                        </div>
+                        <h3 class="module-title">Lengua y Cultura</h3>
+                        <p class="module-desc">Origen de la escritura cuneiforme y jeroglífica, evolución alfabética y diversidad lingüística del Ecuador.</p>
+                        <ul class="module-topics">
+                            <li>De la tablilla de arcilla al mundo digital</li>
+                            <li>Variaciones dialectales y jerga social</li>
+                            <li>Lenguas ancestrales en la identidad ecuatoriana</li>
+                        </ul>
+                        <div class="module-footer">
+                            <span class="badge badge-primary">Teórico-Práctico</span>
+                            <button class="btn btn-secondary js-open-module" data-module-id="1">Ver Detalle</button>
+                        </div>
+                    </article>
+
+                    <!-- Módulo 2 -->
+                    <article class="module-card" data-module="2">
+                        <div class="module-header">
+                            <div class="module-icon-wrap">🎙️</div>
+                            <span class="module-number">Bloque 02</span>
+                        </div>
+                        <h3 class="module-title">Comunicación Oral</h3>
+                        <p class="module-desc">Organización de debates formales, técnicas de persuasión, entrevistas de investigación y dicción.</p>
+                        <ul class="module-topics">
+                            <li>Estructura de debate y rol del moderador</li>
+                            <li>Identificación de falacias lógicas</li>
+                            <li>Entrevistas periodísticas y académicas</li>
+                        </ul>
+                        <div class="module-footer">
+                            <span class="badge badge-emerald">Oratoria</span>
+                            <button class="btn btn-secondary js-open-module" data-module-id="2">Ver Detalle</button>
+                        </div>
+                    </article>
+
+                    <!-- Módulo 3 -->
+                    <article class="module-card" data-module="3">
+                        <div class="module-header">
+                            <div class="module-icon-wrap">🔍</div>
+                            <span class="module-number">Bloque 03</span>
+                        </div>
+                        <h3 class="module-title">Lectura Crítica</h3>
+                        <p class="module-desc">Análisis de artículos de divulgación científica y obras de narrativa policial y ciencia ficción.</p>
+                        <ul class="module-topics">
+                            <li>Comprensión literal e inferencial</li>
+                            <li>Pistas y enigma en la novela policial</li>
+                            <li>Rigor y claridad en divulgación científica</li>
+                        </ul>
+                        <div class="module-footer">
+                            <span class="badge badge-amber">Comprensión</span>
+                            <button class="btn btn-secondary js-open-module" data-module-id="3">Ver Detalle</button>
+                        </div>
+                    </article>
+
+                    <!-- Módulo 4 -->
+                    <article class="module-card" data-module="4">
+                        <div class="module-header">
+                            <div class="module-icon-wrap">✍️</div>
+                            <span class="module-number">Bloque 04</span>
+                        </div>
+                        <h3 class="module-title">Escritura Académica</h3>
+                        <p class="module-desc">Construcción paso a paso del ensayo argumentativo, conectores de cohesión y ortografía avanzada.</p>
+                        <ul class="module-topics">
+                            <li>Formulación de tesis debatibles</li>
+                            <li>Argumentos de autoridad y evidencia</li>
+                            <li>Conectores lógicos y puntuación</li>
+                        </ul>
+                        <div class="module-footer">
+                            <span class="badge badge-rose">Redacción</span>
+                            <button class="btn btn-secondary js-open-module" data-module-id="4">Ver Detalle</button>
+                        </div>
+                    </article>
+
+                    <!-- Módulo 5 -->
+                    <article class="module-card" data-module="5">
+                        <div class="module-header">
+                            <div class="module-icon-wrap">🎭</div>
+                            <span class="module-number">Bloque 05</span>
+                        </div>
+                        <h3 class="module-title">Literatura & Poesía</h3>
+                        <p class="module-desc">Apreciación de la poesía amorosa y social hispanoamericana, métrica, rima y figuras estilísticas.</p>
+                        <ul class="module-topics">
+                            <li>El verso, la estrofa y la rima</li>
+                            <li>Figuras literarias expresivas</li>
+                            <li>Poetas representativos del Ecuador</li>
+                        </ul>
+                        <div class="module-footer">
+                            <span class="badge badge-purple">Lírica</span>
+                            <button class="btn btn-secondary js-open-module" data-module-id="5">Ver Detalle</button>
+                        </div>
+                    </article>
+                </div>
+            </div>
+        </section>
+
+        <!-- ==========================================
+             LECCIONES CLAVE DE 9NO EGB (BOOTSTRAP CARDS & MODALS)
+             ========================================== -->
+        <section class="py-5" id="lecciones" style="background: var(--bg-body); border-top: 1px solid var(--border-color); border-bottom: 1px solid var(--border-color);">
+            <div class="container">
+                <div class="text-center mx-auto mb-5" style="max-width: 650px;">
+                    <span class="badge badge-emerald mb-2">Contenido Temático 9º EGB</span>
+                    <h2 class="section-title">Lecciones Clave del Nivel</h2>
+                    <p class="section-subtitle">Explora tres contenidos fundamentales en Literatura, Ortografía y Redacción con sus explicaciones interactiva en modal.</p>
+                </div>
+
+                <div class="row g-4">
+                    <!-- Tarjeta 1: La Novela Policial -->
+                    <div class="col-md-4">
+                        <div class="card h-100 theme-card shadow-sm border-0">
+                            <div class="card-body d-flex flex-column p-4">
+                                <div class="d-flex align-items-center justify-content-between mb-3">
+                                    <span class="fs-1">🕵️‍♂️</span>
+                                    <span class="badge badge-primary">Literatura</span>
+                                </div>
+                                <h3 class="card-title h5 font-weight-bold mb-2">La Novela Policial</h3>
+                                <p class="card-text text-muted flex-grow-1 fs-6">
+                                    Descubre el mundo del misterio, la deducción lógica, las pistas y el enigma del crimen a través de autores clásicos de la narrativa policial.
+                                </p>
+                                <div class="pt-3 border-top mt-auto">
+                                    <button type="button" class="btn btn-primary w-100" data-bs-toggle="modal" data-bs-target="#modalNovelaPolicial">
+                                        📖 Ver Lección
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Tarjeta 2: Uso de la 'G' y la 'J' -->
+                    <div class="col-md-4">
+                        <div class="card h-100 theme-card shadow-sm border-0">
+                            <div class="card-body d-flex flex-column p-4">
+                                <div class="d-flex align-items-center justify-content-between mb-3">
+                                    <span class="fs-1">✍️</span>
+                                    <span class="badge badge-amber">Ortografía</span>
+                                </div>
+                                <h3 class="card-title h5 font-weight-bold mb-2">Uso de la 'G' y la 'J'</h3>
+                                <p class="card-text text-muted flex-grow-1 fs-6">
+                                    Aprende las reglas ortográficas fundamentales para emplear correctamente las letras G y J en verbos, prefijos y sufijos en tus escritos.
+                                </p>
+                                <div class="pt-3 border-top mt-auto">
+                                    <button type="button" class="btn btn-primary w-100" data-bs-toggle="modal" data-bs-target="#modalUsoGJ">
+                                        📖 Ver Lección
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Tarjeta 3: El Texto Expositivo -->
+                    <div class="col-md-4">
+                        <div class="card h-100 theme-card shadow-sm border-0">
+                            <div class="card-body d-flex flex-column p-4">
+                                <div class="d-flex align-items-center justify-content-between mb-3">
+                                    <span class="fs-1">📑</span>
+                                    <span class="badge badge-rose">Redacción</span>
+                                </div>
+                                <h3 class="card-title h5 font-weight-bold mb-2">El Texto Expositivo</h3>
+                                <p class="card-text text-muted flex-grow-1 fs-6">
+                                    Comprende la estructura objetiva, introductoria y conclusiva para transmitir información clara, precisa y divulgativa.
+                                </p>
+                                <div class="pt-3 border-top mt-auto">
+                                    <button type="button" class="btn btn-primary w-100" data-bs-toggle="modal" data-bs-target="#modalTextoExpositivo">
+                                        📖 Ver Lección
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ==========================================
+             MODALES BOOTSTRAP DE LAS LECCIONES
+             ========================================== -->
+        <!-- Modal 1: La Novela Policial -->
+        <div class="modal fade" id="modalNovelaPolicial" tabindex="-1" aria-labelledby="modalNovelaPolicialLabel" aria-hidden="true">
+            <div class="modal-dialog modal-dialog-centered modal-lg">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <div class="d-flex align-items-center gap-2">
+                            <span class="fs-3">🕵️‍♂️</span>
+                            <h5 class="modal-title font-weight-bold" id="modalNovelaPolicialLabel">La Novela Policial — Literatura (9º EGB)</h5>
+                        </div>
+                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Cerrar"></button>
+                    </div>
+                    <div class="modal-body">
+                        <span class="badge badge-primary mb-3">Bloque 3: Lectura y Narrativa</span>
+                        
+                        <h6 class="text-primary font-weight-bold mb-2">1. ¿Qué es la Novela Policial?</h6>
+                        <p>
+                            La <strong>novela policial</strong> o de enigma es un subgénero narrativo en el que la trama gira en torno al esclarecimiento de un crimen o misterio. A través de la investigación metódica y la observación de pistas, un detective o investigador busca descubrir al culpable y los motivos del hecho.
+                        </p>
+
+                        <h6 class="text-primary font-weight-bold mb-2 mt-4">2. Elementos Fundamentales:</h6>
+                        <ul>
+                            <li><strong>El Enigma / Crimen:</strong> Suceso aparentemente inexplicable que rompe el orden inicial.</li>
+                            <li><strong>El Detective o Investigador:</strong> Personaje guiado por el pensamiento analítico, la lógica deductiva y la observación atenta.</li>
+                            <li><strong>Las Pistas (Reales y Falsas):</strong> Indicios u objetos dejados en la escena del delito que ayudan a reconstruir la verdad.</li>
+                            <li><strong>Los Sospechosos:</strong> Personajes que tienen un posible móvil o relación con el hecho.</li>
+                            <li><strong>La Resolución:</strong> Explicación final donde el investigador expone cómo se cometió el delito y revela la identidad del culpable.</li>
+                        </ul>
+
+                        <h6 class="text-primary font-weight-bold mb-2 mt-4">3. Origen y Autores Clave:</h6>
+                        <p>
+                            Nació a mediados del siglo XIX con el cuento <em>"Los crímenes de la calle Morgue"</em> (1841) de <strong>Edgar Allan Poe</strong>, quien creó al detective Auguste Dupin. Más adelante, <strong>Arthur Conan Doyle</strong> inmortalizó a <em>Sherlock Holmes</em> y <strong>Agatha Christie</strong> a <em>Hercule Poirot</em>.
+                        </p>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar Lección</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Modal 2: Uso de la 'G' y la 'J' -->
+        <div class="modal fade" id="modalUsoGJ" tabindex="-1" aria-labelledby="modalUsoGJLabel" aria-hidden="true">
+            <div class="modal-dialog modal-dialog-centered modal-lg">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <div class="d-flex align-items-center gap-2">
+                            <span class="fs-3">✍️</span>
+                            <h5 class="modal-title font-weight-bold" id="modalUsoGJLabel">Reglas Ortográficas: Uso de la 'G' y la 'J' (9º EGB)</h5>
+                        </div>
+                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Cerrar"></button>
+                    </div>
+                    <div class="modal-body">
+                        <span class="badge badge-amber mb-3">Ortografía y Redacción</span>
+
+                        <h6 class="text-primary font-weight-bold mb-2">1. Se escriben con 'G':</h6>
+                        <ul>
+                            <li><strong>Prefijo Geo- / Gest-:</strong> Palabras que comienzan por <em>geo-</em> (tierra) o <em>gest-</em>. <br><em>Ejemplos:</em> geografía, geología, gestión, gesticular.</li>
+                            <li><strong>Secuencia 'gen':</strong> Palabras que contienen el grupo <em>gen</em>. <br><em>Ejemplos:</em> gente, origen, urgente, generoso. (Excepciones: <em>jengibre, agenjo, crujiente</em>).</li>
+                            <li><strong>Verbos terminados en -ger y -gir:</strong> <br><em>Ejemplos:</em> recoger, proteger, dirigir, elegir. (Excepciones: <em>tejer</em> y <em>crujir</em>).</li>
+                            <li><strong>Terminaciones -gésimo, -génito, -génico:</strong> <br><em>Ejemplos:</em> vigésimo, trigésimo, primogénito.</li>
+                        </ul>
+
+                        <h6 class="text-primary font-weight-bold mb-2 mt-4">2. Se escriben con 'J':</h6>
+                        <ul>
+                            <li><strong>Terminaciones -aje y -eje:</strong> <br><em>Ejemplos:</em> viaje, aprendizaje, personaje, eje, pasaje.</li>
+                            <li><strong>Prefijos aje- y eje-:</strong> <br><em>Ejemplos:</em> ajedrez, ejemplo, ejercitar.</li>
+                            <li><strong>Verbos terminados en -jear:</strong> <br><em>Ejemplos:</em> hojear, canjear, callejear.</li>
+                            <li><strong>Formas verbales sin 'g' ni 'j' en el infinitivo:</strong> <br><em>Ejemplos:</em> decir ➔ <em>dije</em>; traer ➔ <em>traje</em>; conducir ➔ <em>conduje</em>.</li>
+                        </ul>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar Lección</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Modal 3: El Texto Expositivo -->
+        <div class="modal fade" id="modalTextoExpositivo" tabindex="-1" aria-labelledby="modalTextoExpositivoLabel" aria-hidden="true">
+            <div class="modal-dialog modal-dialog-centered modal-lg">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <div class="d-flex align-items-center gap-2">
+                            <span class="fs-3">📑</span>
+                            <h5 class="modal-title font-weight-bold" id="modalTextoExpositivoLabel">El Texto Expositivo — Redacción (9º EGB)</h5>
+                        </div>
+                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Cerrar"></button>
+                    </div>
+                    <div class="modal-body">
+                        <span class="badge badge-rose mb-3">Bloque 4: Escritura Académica</span>
+
+                        <h6 class="text-primary font-weight-bold mb-2">1. ¿Qué es el Texto Expositivo?</h6>
+                        <p>
+                            El <strong>texto expositivo</strong> tiene la finalidad primordial de transmitir información objetiva, clara y estructurada sobre un tema determinado. A diferencia del texto argumentativo, no busca convencer ni expresar opiniones, sino dar a conocer conceptos de manera comprensible.
+                        </p>
+
+                        <h6 class="text-primary font-weight-bold mb-2 mt-4">2. Estructura Básica:</h6>
+                        <ul>
+                            <li><strong>Introducción:</strong> Presenta el tema, el contexto y el objetivo de la exposición para captar la atención del lector.</li>
+                            <li><strong>Desarrollo:</strong> Expone y explica de forma ordenada los datos, subtemas, ejemplos y causas/consecuencias.</li>
+                            <li><strong>Conclusión:</strong> Sintetiza los aspectos más importantes tratados en el cuerpo del texto.</li>
+                        </ul>
+
+                        <h6 class="text-primary font-weight-bold mb-2 mt-4">3. Recursos Expositivos Frecuentes:</h6>
+                        <ul>
+                            <li><strong>Definición:</strong> Explica el significado preciso de términos clave.</li>
+                            <li><strong>Ejemplificación:</strong> Cita casos concretos para clarificar una idea abstracta.</li>
+                            <li><strong>Clasificación:</strong> Agrupa elementos en categorías ordenadas.</li>
+                            <li><strong>Conectores explicativos:</strong> <em>Es decir, en otras palabras, por ejemplo, debido a que, en conclusión.</em></li>
+                        </ul>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar Lección</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- ==========================================
+             HERRAMIENTAS INTERACTIVAS (TALLER Y QUIZ)
+             ========================================== -->
+        <section class="tools-section" id="taller">
+            <div class="container">
+                <div class="tools-layout">
+                    <!-- Taller de Escritura de Ensayo -->
+                    <div class="tool-card">
+                        <div class="tool-header">
+                            <div class="tool-icon">📝</div>
+                            <div>
+                                <h3 style="font-size:1.35rem; font-weight:700;">Taller de Ensayo Argumentativo</h3>
+                                <p style="font-size:0.875rem; color:var(--text-muted);">Organiza las ideas de tu borrador académico</p>
+                            </div>
+                        </div>
+
+                        <form id="essay-form" onsubmit="event.preventDefault();">
+                            <div class="form-group">
+                                <label for="essay-topic">1. Tema General de Investigación</label>
+                                <input type="text" id="essay-topic" class="form-control" placeholder="Ej. El impacto de las redes sociales en la lectura">
+                            </div>
+
+                            <div class="form-group">
+                                <label for="essay-thesis">2. Postura o Tesis Principal (Tu opinión fundamentada)</label>
+                                <input type="text" id="essay-thesis" class="form-control" placeholder="Ej. El uso desmedido de redes reduce la atención profunda en textos largos">
+                            </div>
+
+                            <div class="form-group">
+                                <label for="essay-arg">3. Argumento de Respaldo o Evidencia</label>
+                                <textarea id="essay-arg" class="form-control" placeholder="Ej. Según estudios de la UNESCO (2023), los jóvenes leen más fragmentos breves pero menos obras completas..."></textarea>
+                            </div>
+                        </form>
+
+                        <div class="essay-preview">
+                            <h5>Previsualización del Esquema:</h5>
+                            <div id="essay-preview-output">
+                                <em style="color: var(--text-muted);">Escribe en los campos de arriba para generar el esquema de tu ensayo argumentativo en tiempo real.</em>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Cuestionario de Autoevaluación Interactivo -->
+                    <div class="tool-card" id="cuestionario">
+                        <div class="tool-header">
+                            <div class="tool-icon">🎯</div>
+                            <div>
+                                <h3 style="font-size:1.35rem; font-weight:700;">Autoevaluación Interactiva 9º EGB</h3>
+                                <p style="font-size:0.875rem; color:var(--text-muted);">Responde las 3 preguntas clave y calcula tu nota sobre 10 puntos</p>
+                            </div>
+                        </div>
+
+                        <form id="autoevaluacion-form" onsubmit="event.preventDefault();">
+                            <!-- Pregunta 1: La Novela Policial -->
+                            <div class="mb-4 p-3 rounded" style="background: var(--bg-card); border: 1px solid var(--border-color);">
+                                <div class="d-flex align-items-center gap-2 mb-2">
+                                    <span class="badge badge-primary">Pregunta 1</span>
+                                    <span class="badge badge-emerald">Literatura</span>
+                                </div>
+                                <h5 class="fw-bold fs-6 mb-3">1. ¿Cuál es el elemento indispensable que impulsa la trama en una novela policial o de enigma?</h5>
+                                
+                                <label class="quiz-option-label">
+                                    <input type="radio" name="q1" value="0">
+                                    <span>Un viaje espacial a planetas lejanos e inexplorados.</span>
+                                </label>
+                                <label class="quiz-option-label">
+                                    <input type="radio" name="q1" value="1">
+                                    <span>El esclarecimiento de un crimen o misterio mediante pistas y deducción lógica.</span>
+                                </label>
+                                <label class="quiz-option-label">
+                                    <input type="radio" name="q1" value="0">
+                                    <span>La recitación de poemas románticos dedicados al mar.</span>
+                                </label>
+                            </div>
+
+                            <!-- Pregunta 2: Uso de la 'G' y la 'J' -->
+                            <div class="mb-4 p-3 rounded" style="background: var(--bg-card); border: 1px solid var(--border-color);">
+                                <div class="d-flex align-items-center gap-2 mb-2">
+                                    <span class="badge badge-primary">Pregunta 2</span>
+                                    <span class="badge badge-amber">Ortografía</span>
+                                </div>
+                                <h5 class="fw-bold fs-6 mb-3">2. ¿En cuál de las siguientes opciones todas las palabras cumplen con las reglas ortográficas de la 'G' y la 'J'?</h5>
+                                
+                                <label class="quiz-option-label">
+                                    <input type="radio" name="q2" value="0">
+                                    <span>Jeografía, biaje, recojer, digeron.</span>
+                                </label>
+                                <label class="quiz-option-label">
+                                    <input type="radio" name="q2" value="1">
+                                    <span>Geografía, viaje, recoger, dijeron.</span>
+                                </label>
+                                <label class="quiz-option-label">
+                                    <input type="radio" name="q2" value="0">
+                                    <span>Geografía, viaje, recojer, digeron.</span>
+                                </label>
+                            </div>
+
+                            <!-- Pregunta 3: El Texto Expositivo -->
+                            <div class="mb-4 p-3 rounded" style="background: var(--bg-card); border: 1px solid var(--border-color);">
+                                <div class="d-flex align-items-center gap-2 mb-2">
+                                    <span class="badge badge-primary">Pregunta 3</span>
+                                    <span class="badge badge-rose">Redacción</span>
+                                </div>
+                                <h5 class="fw-bold fs-6 mb-3">3. ¿Cuál es el propósito fundamental de un Texto Expositivo?</h5>
+                                
+                                <label class="quiz-option-label">
+                                    <input type="radio" name="q3" value="0">
+                                    <span>Contar una leyenda antigua con héroes y criaturas fantásticas.</span>
+                                </label>
+                                <label class="quiz-option-label">
+                                    <input type="radio" name="q3" value="1">
+                                    <span>Transmitir información de manera clara, objetiva y estructurada sin expresar opiniones.</span>
+                                </label>
+                                <label class="quiz-option-label">
+                                    <input type="radio" name="q3" value="0">
+                                    <span>Persuadir al público de comprar un producto comercial en un folleto.</span>
+                                </label>
+                            </div>
+
+                            <button type="button" id="btn-calcular-calificacion" class="btn btn-primary w-100 py-2 fs-6">
+                                📊 Calcular Calificación
+                            </button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ==========================================
+             TARJETAS DE FIGURAS LITERARIAS (FLASHCARDS)
+             ========================================== -->
+        <section style="padding: 5rem 0;" id="figuras">
+            <div class="container">
+                <div style="text-align: center; max-width: 600px; margin: 0 auto 2.5rem;">
+                    <span class="badge badge-amber">Recursos Poéticos</span>
+                    <h2 class="section-title">Laboratorio de Figuras Literarias</h2>
+                    <p class="section-subtitle">Haz clic en cada tarjeta para voltearla y descubrir su definición y ejemplo.</p>
+                </div>
+
+                <div class="figures-grid">
+                    <!-- Metáfora -->
+                    <div class="flashcard">
+                        <div class="flashcard-inner">
+                            <div class="flashcard-front">
+                                <span>Metáfora</span>
+                                <p>Toca para revelar 🔄</p>
+                            </div>
+                            <div class="flashcard-back">
+                                <strong>Identificación de un término con otro por semejanza.</strong>
+                                <em style="margin-top:0.5rem; display:block;">"Las perlas de tu boca" (Perlas = Dientes)</em>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Símil -->
+                    <div class="flashcard">
+                        <div class="flashcard-inner">
+                            <div class="flashcard-front">
+                                <span>Símil o Comparación</span>
+                                <p>Toca para revelar 🔄</p>
+                            </div>
+                            <div class="flashcard-back">
+                                <strong>Comparación explícita usando 'como' o 'parece'.</strong>
+                                <em style="margin-top:0.5rem; display:block;">"Su mirada era fría como el hielo"</em>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Hipérbole -->
+                    <div class="flashcard">
+                        <div class="flashcard-inner">
+                            <div class="flashcard-front">
+                                <span>Hipérbole</span>
+                                <p>Toca para revelar 🔄</p>
+                            </div>
+                            <div class="flashcard-back">
+                                <strong>Exageración intencionada para enfatizar.</strong>
+                                <em style="margin-top:0.5rem; display:block;">"Te lo he dicho un millón de veces"</em>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Personificación -->
+                    <div class="flashcard">
+                        <div class="flashcard-inner">
+                            <div class="flashcard-front">
+                                <span>Personificación</span>
+                                <p>Toca para revelar 🔄</p>
+                            </div>
+                            <div class="flashcard-back">
+                                <strong>Atribuir rasgos humanos a objetos o animales.</strong>
+                                <em style="margin-top:0.5rem; display:block;">"El viento susurraba secretos entre los árboles"</em>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- ==========================================
+         MODAL DE DETALLE DE MÓDULO
+         ========================================== -->
+    <div class="modal-overlay" id="module-modal">
+        <div class="modal-card">
+            <button class="modal-close" id="modal-close" aria-label="Cerrar modal">&times;</button>
+            <span class="badge badge-primary" id="modal-badge">Bloque</span>
+            <div class="modal-body">
+                <h3 id="modal-title">Título del Módulo</h3>
+                <div id="modal-body-content">
+                    <!-- Contenido inyectado dinámicamente desde JS -->
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- ==========================================
+         FOOTER
+         ========================================== -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-brand">
+                    <a href="#" class="logo">
+                        <div class="logo-icon">📖</div>
+                        <div class="logo-text">Lengua<span>9ºEGB</span></div>
+                    </a>
+                    <p>Plataforma educativa digital de Lengua y Literatura para Noveno Año de Educación General Básica Superior — Unidad Educativa Fiscomisional San Lorenzo.</p>
+                </div>
+
+                <div class="footer-column">
+                    <h5>Navegación</h5>
+                    <ul class="footer-links">
+                        <li><a href="#inicio">Inicio</a></li>
+                        <li><a href="#modulos">Módulos Curriculares</a></li>
+                        <li><a href="#taller">Taller de Escritura</a></li>
+                        <li><a href="#figuras">Figuras Literarias</a></li>
+                    </ul>
+                </div>
+
+                <div class="footer-column">
+                    <h5>Recursos</h5>
+                    <ul class="footer-links">
+                        <li><a href="#cuestionario">Evaluación Interactiva</a></li>
+                        <li><a href="css/style.css" target="_blank">Hoja de Estilos (CSS)</a></li>
+                        <li><a href="js/main.js" target="_blank">Lógica (JS)</a></li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="footer-bottom">
+                <p>&copy; 2026 Unidad Educativa Fiscomisional San Lorenzo — Lengua y Literatura 9no EGB Superior.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Bootstrap 5 JS Bundle & Script Principal -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
+    <script src="js/main.js"></script>
+</body>
+</html>
